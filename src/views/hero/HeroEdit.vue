@@ -14,7 +14,7 @@
           </select>
         </div>
       </div>
-      <button @click.prevent="add" class="btn btn-success">提交</button>
+      <button @click.prevent="update" class="btn btn-success">提交</button>
     </form>
   </div>
 </template>
@@ -50,6 +50,22 @@ export default {
           this.formData = data        
           }else {
           alert('获取失败')
+        }
+      })
+   },
+   //实现更新功能
+   update(){
+     axios
+      .put(`http://localhost:3000/heroes/${this.id}`,this.formData)
+      .then((res) => {
+        const status = res.status
+        if(status === 200){
+          //修改成功
+          //跳转回列表页
+          this.$router.push('/hero')
+        }else{
+          //修改成功
+          alert('修改失败')
         }
       })
    }
