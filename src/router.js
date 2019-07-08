@@ -18,6 +18,8 @@ import HeroWeapon from './views/weapon/HeroWeapon.vue'
 import HeroEquip from './views/equip/HeroEquip.vue'
 //导入heroadd组件
 import HeroAdd from './views/hero/HeroAdd.vue'
+//导入heroedit组件
+import HeroEdit from './views/hero/HeroEdit.vue'
 
 const router = new VueRouter({
     //选项
@@ -28,8 +30,10 @@ const router = new VueRouter({
         {name:'hero',path:'/hero',component:HeroList},
         {name:'weapon',path:'/weapon',component:HeroWeapon},
         {name:'equip',path:'/equip',component:HeroEquip},
-        //添加英雄的路由组
-        {name:'heroadd',path:'/hero/add',component:HeroAdd}
+        //添加英雄的路由组件
+        {name:'heroadd',path:'/hero/add',component:HeroAdd},
+        //添加修改路由组件
+        {name:'heroedit',path:'/hero/edit',component:HeroEdit},
     ]
 })
 
