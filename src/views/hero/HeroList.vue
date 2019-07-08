@@ -18,9 +18,9 @@
             <td>{{ item.name }}</td>
             <td>{{ item.gender}}</td>
             <td>
-              <a href="edit.html">edit</a>
+              <a href="edit.html">编辑</a>
               &nbsp;&nbsp;
-              <a href="javascript:window.confirm('Are you sure?')">delete</a>
+              <a href="javascript:" @click="del(item.id)">删除</a>
             </td>
           </tr>
         </tbody>
@@ -46,6 +46,7 @@ export default {
     this.loadData();
   },
   methods: {
+    //渲染列表
     loadData() {
       axios
         .get("http://localhost:3000/heroes")
@@ -64,6 +65,30 @@ export default {
         .catch(err => {
           alert("服务器异常" + err);
         });
+    },
+    //删除
+    del(id) {
+      //1.弹出确认对话框
+      if (!confirm("确认删除该英雄吗？")) {
+        return false
+      }
+      //2.发送请求
+      axios
+        .delete(`http://localhost:3000/heroes/${id}`)
+        .then((res) => {
+          const status = res.status
+          if (status === 200) {
+            //删除成功，重新加载列表
+            this.loadData();
+          } else {
+            //删除失败
+            alert("删除失败");
+          }
+        })
+        .catch(err => {
+          alert("服务器异常" + err);
+        });
+      //3.删除成功，重新加载列表
     }
   }
 };
