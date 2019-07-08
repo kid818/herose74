@@ -19,7 +19,7 @@ import HeroEquip from './views/equip/HeroEquip.vue'
 
 const router = new VueRouter({
     //选项
-    //当url和router里的a标签精确匹配时改变类名
+    //当url和router里的a标签精确匹配时改变类名 
     linkActiveClass:'active',
     routes:[
         {path:'/',redirect:{name:'hero'}},
