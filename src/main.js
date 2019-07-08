@@ -31,7 +31,8 @@ Vue.config.productionTip = false
 
 //让所有的vue实力都具有一个属性axios 给vue构造函数的原型增加成员
 import axios from 'axios'
-
+//配置axios的基地址，调用请求的方法的时候get(url),会自动把请求的路劲拼接在基地址后面
+axios.defaults.baseURL = 'http://localhost:3000/'
 Vue.prototype.axios = axios
 
 new Vue({

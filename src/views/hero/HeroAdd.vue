@@ -37,7 +37,7 @@ export default {
     add(){
       //点击按钮发送请求，添加
       this.axios
-        .post('http://localhost:3000/heroes',this.formData)
+        .post('heroes',this.formData)
         .then((res) => {
           const status = res.status
           if(status === 201){

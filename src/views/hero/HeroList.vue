@@ -50,7 +50,7 @@ export default {
     //渲染列表
     loadData() {
       this.axios
-        .get("http://localhost:3000/heroes")
+        .get("heroes")
         .then(res => {
           // console.log(res)
           const { data, status } = res;
@@ -75,7 +75,7 @@ export default {
       }
       //2.发送请求
       this.axios
-        .delete(`http://localhost:3000/heroes/${id}`)
+        .delete(`heroes/${id}`)
         .then((res) => {
           const status = res.status
           if (status === 200) {
