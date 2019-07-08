@@ -23,7 +23,6 @@
 //1.绑定文本框
 //2.点击按钮发送请求
 //3.添加成功，跳转会列表
-import axios from 'axios'
 export default {
   data(){
     return {
@@ -37,7 +36,7 @@ export default {
   methods:{
     add(){
       //点击按钮发送请求，添加
-      axios
+      this.axios
         .post('http://localhost:3000/heroes',this.formData)
         .then((res) => {
           const status = res.status
@@ -49,10 +48,8 @@ export default {
             alert('添加失败')
           }
         })
-        
     }
   }
-
 };
 </script>
 

@@ -29,6 +29,11 @@ import router from './router'
 //提示当前处在开发模式下，false 不提示
 Vue.config.productionTip = false
 
+//让所有的vue实力都具有一个属性axios 给vue构造函数的原型增加成员
+import axios from 'axios'
+
+Vue.prototype.axios = axios
+
 new Vue({
   render: h => h(App),
   router
