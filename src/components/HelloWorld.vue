@@ -31,6 +31,8 @@
 </template>
 
 <script>
+
+//ES6中导出模块的语法
 export default {
   name: 'HelloWorld',
   props: {

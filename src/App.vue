@@ -1,28 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <nav-bar></nav-bar>
+    <div class="container-fluid">
+      <div class="row">
+        <side-bar></side-bar>
+
+        <!-- 主内容区域 -->
+        <router-view></router-view>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+//导入导航组件
+import NavBar from "./components/NavBar.vue";
+//导入侧边栏组件
+import SideBar from "./components/SideBar.vue";
+//导入herolist组件
 export default {
-  name: 'app',
+  name: "app",
+  //注册局部组件
   components: {
-    HelloWorld
+    NavBar,
+    SideBar,
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
