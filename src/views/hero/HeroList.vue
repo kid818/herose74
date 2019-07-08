@@ -214,7 +214,41 @@
 </template>
 
 <script>
-export default {};
+//英雄列表
+//1发送axios请求获取数据
+import axios from "axios";
+//2渲染列表
+export default {
+  data() {
+    return {
+      //存储获取到的列表数据
+      list: []
+    };
+  },
+  mounted() {
+    //组件加载完毕后发送请求
+    this.loadData();
+  },
+  methods: {
+    loadData() {
+      axios.get("http://localhost:3000/heroes").then(res => {
+        // console.log(res)
+        const { data, status } = res;
+        if (status === 200) {
+          //获取成功
+          this.list = data;
+          console.log(this.list)
+        } else {
+          //获取失败
+          alert("获取失败");
+        }
+      })
+      .catch((err) => {
+          alert('服务器异常'+err)
+        })
+    }
+  }
+};
 </script>
 
 <style>
