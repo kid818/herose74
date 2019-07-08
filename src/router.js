@@ -33,7 +33,7 @@ const router = new VueRouter({
         //添加英雄的路由组件
         {name:'heroadd',path:'/hero/add',component:HeroAdd},
         //添加修改路由组件
-        {name:'heroedit',path:'/hero/edit',component:HeroEdit},
+        {name:'heroedit',path:'/hero/edit/:id',component:HeroEdit,props:true},
     ]
 })
 

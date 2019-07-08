@@ -20,11 +20,12 @@
 </template>
 
 <script>
-//1.绑定文本框
-//2.点击按钮发送请求
-//3.添加成功，跳转会列表
+//1.组件中获取动态路由中的id ===$route.params.id
+//2.路由规则设置props:true,路由自动把id传递给组件
+//3.组件中接受props：[‘id ’]
 import axios from 'axios'
 export default {
+  props:['id'],
   data(){
     return {
       //封装表单数据
@@ -34,8 +35,24 @@ export default {
       }
     }
   },
+  mounted(){
+    this.getDataById()
+  },
   methods:{
-   
+   //根据id获取数据
+   getDataById(){
+     axios
+      .get(`http://localhost:3000/heroes/${this.id}`)
+      .then((res) => {
+        const {data,status} = res
+        if(status === 200){
+          //获取成功
+          this.formData = data        
+          }else {
+          alert('获取失败')
+        }
+      })
+   }
   }
 
 };
